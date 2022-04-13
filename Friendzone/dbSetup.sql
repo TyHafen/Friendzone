@@ -23,3 +23,11 @@ INSERT INTO
   accounts(id, name)
 VALUES
   ("x27", "johnny Man");
+SELECT
+  *
+FROM
+  accounts;
+DELETE FROM
+  follows
+WHERE
+  id = 2

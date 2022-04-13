@@ -18,7 +18,7 @@ namespace Friendzone.Repositories
         public Follow Create(Follow followData)
         {
             string sql = @"INSERT INTO follows (followerId, followingId)
-            VALUES (@FollowingId, @FollowerId);
+            VALUES (@FollowerId, @FollowingId );
             SELECT LAST_INSERT_ID();
             ";
             int id = _db.ExecuteScalar<int>(sql, followData);
@@ -28,7 +28,7 @@ namespace Friendzone.Repositories
 
         internal List<FollowViewModel> GetProfileFollows(string id)
         {
-            string sql = @"SELECT * follows WHERE followingId = @id";
+            string sql = "SELECT follows.id AS FollowId, a.* FROM follows JOIN accounts a ON a.id = follows.followingId WHERE followingId = @id;";
             return _db.Query<FollowViewModel>(sql, new { id }).ToList();
         }
     }

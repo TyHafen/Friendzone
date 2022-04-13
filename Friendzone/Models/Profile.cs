@@ -12,6 +12,6 @@ namespace Friendzone.Models
     }
     public class FollowViewModel : Profile
     {
-        public int followId { get; set; }
+        public int FollowId { get; set; }
     }
 }
