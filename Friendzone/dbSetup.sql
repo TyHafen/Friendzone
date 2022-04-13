@@ -19,3 +19,7 @@ SELECT
   *
 FROM
   follows;
+INSERT INTO
+  accounts(id, name)
+VALUES
+  ("x27", "johnny Man");

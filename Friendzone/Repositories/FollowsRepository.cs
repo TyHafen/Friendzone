@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Dapper;
 using Friendzone.Models;
 
@@ -22,6 +24,12 @@ namespace Friendzone.Repositories
             int id = _db.ExecuteScalar<int>(sql, followData);
             followData.Id = id;
             return followData;
+        }
+
+        internal List<FollowViewModel> GetProfileFollows(string id)
+        {
+            string sql = @"SELECT * follows WHERE followingId = @id";
+            return _db.Query<FollowViewModel>(sql, new { id }).ToList();
         }
     }
 }

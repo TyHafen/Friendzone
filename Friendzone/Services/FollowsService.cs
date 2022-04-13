@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Friendzone.Models;
 using Friendzone.Repositories;
 
@@ -16,6 +17,11 @@ namespace Friendzone.Services
         {
             return _fRepo.Create(followData);
 
+        }
+
+        internal List<FollowViewModel> GetProfileFollows(string id)
+        {
+            return _fRepo.GetProfileFollows(id);
         }
     }
 }
